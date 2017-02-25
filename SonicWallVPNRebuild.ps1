@@ -11,8 +11,8 @@
 function Reset-SonicWallVpn {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory=true)]
-        [string]VPNAddress,
+        [Parameter(Mandatory=$true)]
+        [string]$VPNAddress
     )
     
     
@@ -44,7 +44,8 @@ CustomConfiguration = $sourceXml
 Remove-VpnConnection $SAProps.name -Force
 
 #reset Sonicwall application
-Get-AppXPackage SonicWALL.MobileConnect -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+Get-AppXPackage SonicWALL.MobileConnect -AllUsers |
+Foreach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 
 #Recreate vpns
 Add-VpnConnection @CCProps
