@@ -56,3 +56,5 @@ Add-VpnConnection @SAProps
     
     end { }
 }
+
+Reset-SonicWallVpn
