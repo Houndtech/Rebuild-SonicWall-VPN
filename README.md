@@ -1,5 +1,9 @@
 # SonicWAll VPN Rebuild #
 
+Captures the settings of any configured Sonicwall Mobile connect VPNs.
+Removes the VPNs, resets the SonicWall Mobile Connect application, and rebuilds the VPNs with the saved settings
+
+No parameters are needed as the script stores the config settings in memory during execution.
 
 ****************************************************************
 DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED 
