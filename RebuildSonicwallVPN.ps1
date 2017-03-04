@@ -6,9 +6,8 @@
     Then removes the VPNs, resets the SonicWall Mobile Connect application, and rebuilds the VPNs with the saved settings
     No parameters are needed as the script stores the config settings in memory during execution.
 .EXAMPLE
-    ./RebuildSonicwallVPn.ps1
+    ./RebuildSonicwallVPN.ps1
 #>
- [CmdletBinding()]
  
  #Common Variables
 $xml = "<MobileConnect><Port>443</Port></MobileConnect>"
@@ -21,7 +20,7 @@ $vpnlist = Get-VpnConnection |Where-Object {$_.PluginApplicationID -like "SonicW
 #clean out VPNs
 ForEach ($VPN in $vpnlist) {
     Remove-VpnConnection $VPN.Name -Force
-    }
+    } #End ForEach
 
 #reset Sonicwall Mobile Connect
 $Sonicwall = Get-AppXPackage SonicWALL.MobileConnect
